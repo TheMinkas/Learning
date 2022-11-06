@@ -1,2 +1,7 @@
-package JavaCore;public class Main {
+package JavaCore;
+
+public class Main {
+    public static void main(String[] args) {
+
+    }
 }
