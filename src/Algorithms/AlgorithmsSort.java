@@ -40,7 +40,6 @@ public class AlgorithmsSort {
         }
 
     }
-
     //Сортировка выбором
     //Сортировка выбирает 0 элемент масива и сравнивает его с последующими
     //если n элемент < 0 элемента, то они меняются местами, дальше переходит к 1 элементу масива
@@ -48,13 +47,12 @@ public class AlgorithmsSort {
     public void selectionSort(int[] array) {
         for (int i = 0; i < array.length - 1; i++) {
             printArray(array);
-            int minElementIndex = i;//
+            int minElementIndex = i;                            // Задаёт первый элемент масива по индексу
             for (int j = i + 1; j < array.length; j++) {        //Поиск минимального значения, перебирая индесы в массиве
                 if (array[minElementIndex] > array[j]) {
                     minElementIndex = j;
                 }
             }
-
             if (minElementIndex != i) {
                 int temp = array[i];
                 array[i] = array[minElementIndex];
@@ -62,7 +60,6 @@ public class AlgorithmsSort {
             }
         }
     }
-
     public void insertionSort (int[] array) {
         for (int i = 1; i < array.length; i++) {        //Перебор массива
             int actualValue = array[i];                 //Беру 1 элемент массива
@@ -72,10 +69,8 @@ public class AlgorithmsSort {
                 j--;
             }
             array[j] = actualValue;                     //втавляю элемент в освободившуюся ячейку
-            printArray(array);
         }
     }
-
 
     public void printArray(int[] array) {
         System.out.println("");
