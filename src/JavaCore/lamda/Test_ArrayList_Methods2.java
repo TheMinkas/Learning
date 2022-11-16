@@ -1,9 +1,8 @@
-package JavaCore.OOP.lamda;
+package JavaCore.lamda;
 
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Test_ArrayList_Methods2 {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package JavaCore.OOP.lamda;
+package JavaCore.lamda;
 
 import java.util.Objects;
 

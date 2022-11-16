@@ -1,4 +1,4 @@
-package JavaCore.OOP.lamda;
+package JavaCore.lamda;
 
 public class Test2 {
     static void  def(I i) {

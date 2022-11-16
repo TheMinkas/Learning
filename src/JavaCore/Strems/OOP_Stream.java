@@ -1,4 +1,4 @@
-package JavaCore.OOP;
+package JavaCore.Strems;
 
 import java.util.ArrayList;
 import java.util.List;
