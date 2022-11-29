@@ -9,5 +9,6 @@ public class Main {
         Rectangle rectangle1 = new Rectangle();
         rectangle1.draw();
         rectangle1.resize();
+        rectangle1.moveTo(5,6);
     }
 }

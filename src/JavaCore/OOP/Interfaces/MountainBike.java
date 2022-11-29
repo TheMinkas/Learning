@@ -1,6 +1,6 @@
 package JavaCore.OOP.Interfaces;
 
-public class MountainBike implements Bicycle {
+public class MountainBike implements Bicycle, Vehicle {
     private int seatHeight;
 
     private int gear;
@@ -45,5 +45,10 @@ public class MountainBike implements Bicycle {
 
     public void setSpeed(int speed) {
         this.speed = speed;
+    }
+
+    @Override
+    public void canDrive() {
+        System.out.println("Mountain bike can drive");
     }
 }

@@ -10,4 +10,5 @@ public class Rectangle extends GraphicObject{
     void resize() {
         System.out.println("Resizing a Rectangle");
     }
+
 }
