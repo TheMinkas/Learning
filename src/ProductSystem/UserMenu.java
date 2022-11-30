@@ -1,47 +1,53 @@
 package ProductSystem;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collections;
 
 public class UserMenu {
     public static void main(String[] args) {
 
 
-        ProductRepozitory productRepozitory = new ProductRepositoryMemory();
-        productRepozitory.addNewProduct(new Product(1, "Р“СЂРµС‡РєР°", 10, 10));
-        productRepozitory.addNewProduct(new Product(2, "РђСЂР±СѓР·", 2, 20));
-        productRepozitory.addNewProduct(new Product(3, "Р§Р°С€РєР°", 5, 3));
-        productRepozitory.addNewProduct(new Product(4, "Р’РёР»РєР°", 20, 2));
+        ProductRepository productRepository = new ProductRepositoryMemory();
 
-        while (true){
-            System.out.println("\nРњР•РќР®: ");
-            System.out.println("1. РЎРїРёСЃРѕРє РїСЂРѕРґСѓРєС‚РѕРІ. \n" +
-                    "2. Р”РѕР±Р°РІР»РµРЅРёРµ С‚РѕРІР°СЂР°. \n" +
-                    "3. РР·РјРµРЅРµРЅРёРµ С‚РѕРІР°СЂР°. \n" +
-                    "4. РЈРґР°Р»РµРЅРёРµ С‚РѕРІР°СЂР°.");
-            System.out.print("\nР’С‹Р±РµСЂРёС‚Рµ РЅРµРѕР±С…РѕРґРёРјС‹Р№ РїСѓРЅРєС‚ РњР•РќР®: ");
+//        productRepository.addNewProduct(new Product(1, "Гречка", 10, 10));
+//        productRepository.addNewProduct(new Product(2, "Арбуз", 2, 20));
+//        productRepository.addNewProduct(new Product(3, "Чашка", 5, 3));
+//        productRepository.addNewProduct(new Product(4, "Вилка", 20, 2));
+
+        productRepository.fileReader();
+
+        while (true) {
+            System.out.println("\nМЕНЮ: ");
+            System.out.println("1. Список продуктов. \n" +
+                    "2. Добавление товара. \n" +
+                    "3. Изменение товара. \n" +
+                    "4. Удаление товара.");
+            System.out.print("\nВыберите необходимый пункт МЕНЮ: ");
             int userInputMenu = UserInput.readUserInputInt();
             switch (userInputMenu) {
                 case 1:
-                    System.out.println("\nРЎРїРёСЃРѕРє РїСЂРѕРґСѓРєС‚РѕРІ: ");
-                    productRepozitory.getProductList().forEach(System.out::println);
+                    if (productRepository.getProductList().isEmpty()) {
+                        System.out.println("\nСписок пуст!");
+                    } else {
+                        System.out.println("\nСписок продуктов: ");
+                        productRepository.getProductList().forEach(System.out::println);
+                    }
                     break;
                 case  2:
-                    System.out.println("\nР”РѕР±Р°РІР»РµРЅРёРµ С‚РѕРІР°СЂР°.");
-                    productRepozitory.addNewProduct(productRepozitory.addProductList());
+                    System.out.println("\nДобавление товара.");
+                    productRepository.addNewProduct(productRepository.addProductList());
                     break;
                 case 3:
-                    System.out.println("\nРР·РјРµРЅРµРЅРёРµ С‚РѕРІР°СЂР°.");
+                    System.out.println("\nИзменение товара.");
+                    productRepository.overWritingProduct();
                     break;
                 case 4:
-                    System.out.println("\nРЈРґР°Р»РµРЅРёРµ С‚РѕРІР°СЂР°.");
+                    System.out.println("\nУдаление товара.");
+                    productRepository.deleteProduct();
                     break;
                 default:
-                    System.out.println("\nРўР°РєРѕРіРѕ РїСѓРЅРєС‚Р° РјРµРЅСЋ РЅРµС‚, РїРѕРІС‚РѕСЂРёС‚Рµ РїРѕРїС‹С‚РєСѓ!");
+                    System.out.println("\nТакого пункта меню нет, повторите попытку!");
                     break;
             }
-
-
         }
     }
 }

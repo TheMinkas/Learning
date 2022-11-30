@@ -19,7 +19,7 @@ public class UserInput {
             int inputLine = scanner.nextInt();
             return inputLine;
         } else {
-            System.out.println("РћС€РёР±РєР° РІРІРѕРґР°. Р’Р°Рј РЅСѓР¶РЅРѕ РІРІРµСЃС‚Рё С‡РёСЃР»Рѕ.");
+            System.out.println("Ошибка ввода. Вам нужно ввести число.");
             return readUserInputInt();
         }
     }
@@ -31,7 +31,7 @@ public class UserInput {
             double inputLine = scanner.nextDouble();
             return inputLine;
         } else {
-            System.out.println("РћС€РёР±РєР° РІРІРѕРґР°. Р’Р°Рј РЅСѓР¶РЅРѕ РІРІРµСЃС‚Рё С‡РёСЃР»Рѕ.");
+            System.out.println("Ошибка ввода. Вам нужно ввести число.");
             return readUserInputDouble();
         }
     }

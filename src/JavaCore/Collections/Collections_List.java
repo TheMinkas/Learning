@@ -17,7 +17,9 @@ public class Collections_List {
         }
 
         list.addAll(2, Collections.singleton(5));
-        System.out.println("");
+        System.out.println("________");
+        System.out.println(list);
+        System.out.println("-------------");
 
         for(int i = 0; i<list.size(); i++) {
             System.out.print(list.get(i) + " ");

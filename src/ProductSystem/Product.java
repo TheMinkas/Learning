@@ -1,9 +1,10 @@
 package ProductSystem;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Product {
+public class Product implements Comparable<Product> {
     private int id;
     private String name;
     private int quantity;
@@ -18,10 +19,10 @@ public class Product {
 
     @Override
     public String toString() {
-        return "ID: " + this.id +
-                " | " + this.name +
-                " | Количество товара: " + this.quantity +
-                " | Вес товара: " + this.weight;
+        return this.id +
+                "|" + this.name +
+                "|" + this.quantity +
+                "|" + this.weight;
     }
 
     public int getId() {
@@ -54,5 +55,11 @@ public class Product {
 
     public void setWeight(double weight) {
         this.weight = weight;
+    }
+
+
+    @Override
+    public int compareTo(Product o) {
+        return this.id - o.id;
     }
 }
