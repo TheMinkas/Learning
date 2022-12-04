@@ -11,5 +11,5 @@ public interface ProductRepository {
     void deleteProduct();
     void fileWriter();
     void fileReader();
-    void productSearch();
+    void showProductListForUser();
 }

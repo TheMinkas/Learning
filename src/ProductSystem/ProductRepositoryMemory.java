@@ -11,7 +11,6 @@ public class ProductRepositoryMemory implements ProductRepository {
     private List<Product> productList = new ArrayList<>();
     private File myFile = new File("Products.txt");
     private List<String> tempList = new ArrayList<>();
-    private static String tempInt = "";
     //Добавление продукта в productList
     @Override
     public void addNewProduct(Product product) {
@@ -53,14 +52,12 @@ public class ProductRepositoryMemory implements ProductRepository {
 
     @Override
     public void deleteProduct() {
-        tempInt = "";
         System.out.print("Введите id товара, который следует удалить: ");
         int idProduct = UserInput.readUserInputInt();
         productList.remove(idProduct -1);
-        tempInt = String.valueOf(idProduct);
-        fileWriter();
         System.out.println("Товар удалён!");
         //А на это ещё 2 часа....
+        //Нужно сделать так, чтобы после удаления товара, происходил сдвиг по id
         int x = 1;
         for(int i = 0; i<productList.size(); i++) {
            Product tempProduct = productList.get(i);
@@ -68,6 +65,7 @@ public class ProductRepositoryMemory implements ProductRepository {
            x++;
            productList.set(i, tempProduct);
         }
+        fileWriter();
     }
 
     @Override
@@ -97,8 +95,7 @@ public class ProductRepositoryMemory implements ProductRepository {
 
         } else {
             //Эту ХУЕТУ я писал 4 часа!!!!! Я ТАК ЗАЕБАЛСЯ!!!!!! ЭТО АВТОРСКАЙ ХУЕТА!!!!!!
-            //После чтения фала,
-            //в данном фрагменте кода происходит запись из List<String> tempList в List<Student>
+            //После чтения фала, необходимо перезаписать информацию из tempList в productList
             String[] tempArrayString = tempList.get(0).split(", ");
             for (int i = 0; i<tempArrayString.length; i++){
                 String tempString = tempArrayString[i]
@@ -119,8 +116,16 @@ public class ProductRepositoryMemory implements ProductRepository {
     }
 
     @Override
-    public void productSearch() {
-        //Попробовать реализовать
+    public void showProductListForUser() {
+        if(productList.isEmpty()) {
+            System.out.println("\nСписок пуст!");
+        } else {
+            for (int i = 0; i < productList.size(); i++) {
+                System.out.println("\nID: " + productList.get(i).getId()
+                        + ".\nНазвание товара: " + productList.get(i).getName()
+                        + ". \nКолличество товара: " + productList.get(i).getQuantity() + ". \nВес товара: " + productList.get(i).getWeight());
+            }
+        }
     }
 
     //Создание нового продукта
@@ -129,9 +134,9 @@ public class ProductRepositoryMemory implements ProductRepository {
         System.out.print("Введите id: ");
         int id = UserInput.readUserInputInt();
         String name = "null";
-
+        //Нужно сделать так, чтобы нельзя было вводить id не по списку
         if(checkOverlapId(id) == true && id <= productList.size()+1) {
-
+            //Добавить проверку на уникальное имя в листе
             do {
                 System.out.print("Введите название товара: ");
                 String tempName = UserInput.readUserInputString();
@@ -146,7 +151,7 @@ public class ProductRepositoryMemory implements ProductRepository {
             double weight = UserInput.readUserInputDouble();
             return new Product(id, name, quantity, weight);
         } else {
-                System.out.println("Введите следующий ID по списку: " + (productList.size()+1));
+                System.out.println("Введите следующий по списку ID: " + (productList.size()+1));
             return addProductList();
         }
 

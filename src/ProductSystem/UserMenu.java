@@ -25,12 +25,7 @@ public class UserMenu {
             int userInputMenu = UserInput.readUserInputInt();
             switch (userInputMenu) {
                 case 1:
-                    if (productRepository.getProductList().isEmpty()) {
-                        System.out.println("\nСписок пуст!");
-                    } else {
-                        System.out.println("\nСписок продуктов: ");
-                        productRepository.getProductList().forEach(System.out::println);
-                    }
+                    productRepository.showProductListForUser();
                     break;
                 case  2:
                     System.out.println("\nДобавление товара.");
