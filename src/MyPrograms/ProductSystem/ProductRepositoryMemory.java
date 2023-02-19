@@ -1,11 +1,9 @@
-package ProductSystem;
+package MyPrograms.ProductSystem;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class ProductRepositoryMemory implements ProductRepository {
     private List<Product> productList = new ArrayList<>();

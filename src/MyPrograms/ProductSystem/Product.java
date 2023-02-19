@@ -1,8 +1,4 @@
-package ProductSystem;
-
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+package MyPrograms.ProductSystem;
 
 public class Product implements Comparable<Product> {
     private int id;

@@ -1,4 +1,4 @@
-package ProductSystem;
+package MyPrograms.ProductSystem;
 
 import java.util.List;
 

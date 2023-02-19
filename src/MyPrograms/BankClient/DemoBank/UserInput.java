@@ -1,9 +1,8 @@
-package ProductSystem;
+package MyPrograms.BankClient.DemoBank;
 
 import java.util.Scanner;
 
 public class UserInput {
-
     public static String readUserInputString() {
         Scanner scanner = new Scanner(System.in);
 
@@ -35,4 +34,6 @@ public class UserInput {
             return readUserInputDouble();
         }
     }
+
+
 }

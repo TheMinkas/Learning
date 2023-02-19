@@ -1,6 +1,4 @@
-package ProductSystem;
-
-import java.util.Collections;
+package MyPrograms.ProductSystem;
 
 public class UserMenu {
     public static void main(String[] args) {
@@ -20,7 +18,8 @@ public class UserMenu {
             System.out.println("1. Список продуктов. \n" +
                     "2. Добавление товара. \n" +
                     "3. Изменение товара. \n" +
-                    "4. Удаление товара.");
+                    "4. Удаление товара. \n" +
+                    "5. Выход.");
             System.out.print("\nВыберите необходимый пункт МЕНЮ: ");
             int userInputMenu = UserInput.readUserInputInt();
             switch (userInputMenu) {
@@ -39,6 +38,9 @@ public class UserMenu {
                     System.out.println("\nУдаление товара.");
                     productRepository.deleteProduct();
                     break;
+                case 5:
+                    System.out.println("\nПрограмма завершена");
+                    System.exit(0);
                 default:
                     System.out.println("\nТакого пункта меню нет, повторите попытку!");
                     break;

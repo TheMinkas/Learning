@@ -1,6 +1,4 @@
-package Calculator;
-
-import java.util.Arrays;
+package MyPrograms.Calculator;
 
 public class Main {
     public static void main(String[] args) {
